@@ -48,8 +48,8 @@
 				<!-- <div ng-repeat="person in persons">{{person.name}}::{{person.email}}::{{person.age}}::{{person.city}}::{{person.state}}::{{person.country}}</div> -->
 				<hr/>
 				
-				<input type="button" value="Delete" ng-click="delete()"/> 
-				<input type="button" value="Update" ng-click="update()"/>
+				<input type="button" value="Delete" ng-click="delete()" class="btn btn-primary"/> 
+				<input type="button" value="Update" ng-click="update()" class="btn btn-primary"/>
 			</div>
 			<div class="add-person" ng-if="greyout">
 				<div class="formContainer" ng-include src="'personForm.html'"/>
@@ -86,7 +86,7 @@
 		            <input type="text" class="form-control" placeholder="Enter country" ng-model="person.country">
 		        </div>
 
-		        <button type="submit" class="btn btn-default" ng-click="add(person)">Submit</button>
+		        <button type="submit" class="btn btn-default" ng-click="add(person)" class="btn btn-primary">Submit</button>
 		    </form>
 		</div>
 	</script>
