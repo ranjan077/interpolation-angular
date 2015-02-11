@@ -1,0 +1,95 @@
+<html>
+
+<head>
+    <title>Interpolation</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-theme.css">
+    <link rel="stylesheet" type="text/css" href="css/Interpolation.css">
+    <script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="underscore.js"></script>
+    <script type="text/javascript" src="angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-sanitize.js"></script>
+    <script type="text/javascript" src="javascript.js"></script>
+    <script type="text/javascript"></script>
+    <script type="text/javascript">
+		$(function(){
+			var pop = function(){
+				$('#screen').css({'display': 'block', 'opacity': '0.7', 'width':$(document).width(),'height':$(document).height(),'background-color': 'rgb(9, 9, 9)','top':'-41%','right':'-60%','position':'absolute'});
+				$('body').css({'overflow':'hidden'});
+				
+			}
+			$('#add').click(pop);
+		});
+    </script>
+</head>
+
+<body ng-app="myApp">
+	<div ng-controller="personController">
+			<div>
+				<table class="table table-hover">
+					<input type="button" value="Add" id="add" ng-click="showAddForm()" class="btn btn-primary"/> 
+					<br><br><br>
+					<thead>
+				        <tr>
+				          <th>#</th>
+				          <th>Name</th>
+				          <th>Email</th>
+				          <th>Age</th>
+				          <th>City</th>
+				          <th>State</th>
+				          <th>India</th>
+				        </tr>
+	      			</thead>
+	      			<tbody>
+	      				<tr ng-repeat="person in persons" ng-bind-html="html" my-directive  ng-dblclick="editForm"></tr>
+	      			</tbody>
+				</table>
+				<!-- <div ng-repeat="person in persons">{{person.name}}::{{person.email}}::{{person.age}}::{{person.city}}::{{person.state}}::{{person.country}}</div> -->
+				<hr/>
+				
+				<input type="button" value="Delete" ng-click="delete()"/> 
+				<input type="button" value="Update" ng-click="update()"/>
+			</div>
+			<div class="add-person" ng-if="greyout">
+				<div class="formContainer" ng-include src="'personForm.html'"/>
+			</div>
+			<div   id="screen">
+			</div>
+
+	</div>
+	<script type="text/ng-template" id="personForm.html">
+		<div class="form">
+		    <form>
+		        <div class="form-group">
+		            <label for="exampleInputEmail1">Name</label>
+		            <input type="text" class="form-control" placeholder="Enter name" ng-model="person.name">
+		        </div>
+		        <div class="form-group">
+		            <label for="exampleInputEmail1">Email</label>
+		            <input type="email" class="form-control" placeholder="Enter email" ng-model="person.email">
+		        </div>
+		        <div class="form-group">
+		            <label for="exampleInputEmail1">Age</label>
+		            <input type="number" class="form-control" placeholder="Enter age" ng-model="person.age">
+		        </div>
+		        <div class="form-group">
+		            <label for="exampleInputEmail1">City</label>
+		            <input type="text" class="form-control" placeholder="Enter city" ng-model="person.city">
+		        </div>
+		        <div class="form-group">
+		            <label for="exampleInputEmail1">State</label>
+		            <input type="text" class="form-control" placeholder="Enter state" ng-model="person.state">
+		        </div>
+		        <div class="form-group">
+		            <label for="exampleInputEmail1">Country</label>
+		            <input type="text" class="form-control" placeholder="Enter country" ng-model="person.country">
+		        </div>
+
+		        <button type="submit" class="btn btn-default" ng-click="add(person)">Submit</button>
+		    </form>
+		</div>
+	</script>
+</body>
+
+</html>

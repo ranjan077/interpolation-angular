@@ -1,0 +1,33 @@
+
+.add-person{
+	width:50%;
+	height:50%;
+	border: 1px solid red;
+	position: absolute;
+	top: 20%;
+	left: 20%;
+	background-color: #fff;
+	z-index: 3;
+}
+
+.greyscreen{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	opacity: 0.3;
+	background-color: rgb(122, 122, 140);
+	top: 0%;
+	z-index: 2;
+}
+.form{
+	margin: 0 auto;
+	width:50%;
+	height:50%;
+}
+
+.formContainer{
+	position: absolute;
+	z-index: 3;
+	background-color: #fff;
+	width: 100%;
+}
